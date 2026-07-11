@@ -4,12 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lost & Found</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class>
-    
-    <h1 class="text-4xl font-bold text-center "> Lost & Found</h1>
+<body>
+
+    <header>
+        <h1> Lost & Found</h1>
+        <p>Find what you lost, return what you found.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Report an Item</h2>
+            
+            <form id="item-form">
+                <label>What is the item?</label>
+                <input type="text" id="title" required placeholder="e.g., Blue Jacket">
+                
+                <fieldset>
+                    <div>
+                        <label>Status</label>
+                        <select id="type">
+                            <option value="Lost">I Lost This</option>
+                            <option value="Found">I Found This</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Photo (Optional)</label>
+                        <input type="file" id="image" accept="image/*">
+                    </div>
+                </fieldset>
+
+                <label>Contact Email</label>
+                <input type="email" id="contact" required placeholder="you@example.com">
+
+                <button type="submit">Post Item</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Recent Items</h2>
+            <div id="feed">
+                <p>No items reported yet.</p>
+            </div>
+        </section>
+    </main>
 
     <script src="app.js"></script>
 </body>
