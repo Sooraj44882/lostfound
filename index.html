@@ -10,42 +10,21 @@
 
     <header>
         <h1> Lost & Found</h1>
-        <p>Find what you lost, return what you found.</p>
+        <nav style="margin-top: 1.5rem;">
+            <a href="index.html" style="margin-right: 1.5rem; font-weight: bold; color: #3498db; text-decoration: none;"
+            >Browse Items</a>
+            <a href="report.html" style="font-weight: bold; color: #7f8c8d; text-decoration: none;"
+            >Report an Item</a>
+        </nav>
     </header>
 
     <main>
-        <section>
-            <h2>Report an Item</h2>
-            
-            <form id="item-form">
-                <label>What is the item?</label>
-                <input type="text" id="title" required placeholder="e.g., Blue Jacket">
-                
-                <fieldset>
-                    <div>
-                        <label>Status</label>
-                        <select id="type">
-                            <option value="Lost">I Lost This</option>
-                            <option value="Found">I Found This</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>Photo (Optional)</label>
-                        <input type="file" id="image" accept="image/*">
-                    </div>
-                </fieldset>
-
-                <label>Contact Email</label>
-                <input type="email" id="contact" required placeholder="you@example.com">
-
-                <button type="submit">Post Item</button>
-            </form>
-        </section>
-
-        <section>
-            <h2>Recent Items</h2>
-            <div id="feed">
-                <p>No items reported yet.</p>
+        <section style="border: none; padding: 0; background: transparent;">
+            <h2 style="border-bottom: 2px solid #bdc3c7; padding-bottom: 0.5rem; color: #2c3e50;
+            ">Active Listings</h2>
+    
+            <div id="items-board">
+                <p>Loading items...</p>
             </div>
         </section>
     </main>
