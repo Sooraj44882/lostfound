@@ -35,12 +35,12 @@ main {
 }
 
 
-section { 
+#items-board section { 
     background: #fff; 
     padding: 1.5rem;  
 }
 
-section::before {
+#items-board section::before {
     content: "";
     display: block;
     width: 65px;
