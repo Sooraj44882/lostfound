@@ -2,6 +2,7 @@
 
 A prototype built for our school to help students track lost and found items more easily. 
 
+**Live Demo:** [https://sooraj44882.github.io/lostfound/](https://sooraj44882.github.io/lostfound/)
 ## Features
 
 * **Post & Remove Listings**:  Add or delete lost/found items with a title and contact email.
@@ -17,7 +18,7 @@ A prototype built for our school to help students track lost and found items mor
 * **CSS** 
 * **JavaScript** 
 
-## How to Run
+## How to Run Local
 
 1. Clone or download the repo.
 2. Open `index.html` in a browser.
