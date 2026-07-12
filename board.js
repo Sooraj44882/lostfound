@@ -1,18 +1,66 @@
 const boardEle = document.getElementById('items-board');
+const searchInput = document.getElementById('search-bar');
+const filterSelect = document.getElementById('filter-status');
+
+const starterData = [
+    { 
+        id: 101, 
+        title: 'Black Jacket', 
+        type: 'Lost', 
+        contact: 'alex@school.edu', 
+        image: null 
+    },
+    { 
+        id: 102, 
+        title: 'TI Graphing Calculator', 
+        type: 'Found', 
+        contact: 'library@school.edu', 
+        image: null 
+    },
+    { 
+        id: 103, 
+        title: 'AirPods Pro (Left Ear only)', 
+        type: 'Lost', 
+        contact: 'sarah@school.edu', 
+        image: null 
+    },
+    { 
+        id: 104, 
+        title: 'Umbrella', 
+        type: 'Found', 
+        contact: 'Ali@school.edu', 
+        image: null 
+    }
+];
 
 let savedItems = JSON.parse(localStorage.getItem('lf-items')) || [];
+
+if (!savedItems || savedItems.length === 0) {
+    savedItems = starterData;
+    localStorage.setItem('lf-items', JSON.stringify(savedItems));
+}
 
 function refreshBoard() {
     if (!boardEle) return; 
 
     boardEle.innerHTML = ''; 
     
-    if (savedItems.length === 0) {
-        boardEle.innerHTML = '<p style="color: #7f8c8d;">No active listings found.</p>';
+    const searchTerm = searchInput.value.toLowerCase();
+    const filterValue = filterSelect.value;
+
+    const filteredItems = savedItems.filter(item => {
+        const matchesSearch = item.title.toLowerCase().includes(searchTerm) || item.contact.toLowerCase().includes(searchTerm);
+        const matchesType = filterValue === 'All' || item.type === filterValue;
+        
+        return matchesSearch && matchesType;
+    });
+    
+    if (filteredItems.length === 0) {
+        boardEle.innerHTML = '<p style="color: #fff; font-weight: bold; font-size: 1.2rem;">No items match your search.</p>';
         return;
     }
 
-    savedItems.forEach(item => {
+    filteredItems.forEach(item => {
         const statusColor = item.type === 'Lost' ? '#e74c3c' : '#2ecc71'; 
         
         const photoHTML = item.image ? 
@@ -44,5 +92,8 @@ window.removeItem = function(itemId) {
         refreshBoard(); 
     }
 };
+
+if (searchInput) searchInput.addEventListener('input', refreshBoard);
+if (filterSelect) filterSelect.addEventListener('change', refreshBoard);
 
 refreshBoard();

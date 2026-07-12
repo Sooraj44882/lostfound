@@ -19,14 +19,18 @@
     </header>
 
     <main>
-        <section style="border: none; padding: 0; background: transparent;">
-            <h2 style="border-bottom: 2px solid #bdc3c7; padding-bottom: 0.5rem; color: #2c3e50;
-            ">Active Listings</h2>
+        <section style="background: transparent;  padding: 0 0 2rem ; display: flex; gap: 1rem;">
+            <input type="search" id="search-bar" placeholder="Search for items..." style="flex: 2;">
+            <select id="filter-status" style="flex: 1;">
+                <option value="All">All Items</option>
+                <option value="Lost">Lost Only</option>
+                <option value="Found">Found Only</option>
+            </select>
+        </section>
     
             <div id="items-board">
                 <p>Loading items...</p>
             </div>
-        </section>
     </main>
 
     <script src="board.js"></script>
